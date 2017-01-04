@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>BSIDE : BootStrap IDE</title>
+
+ 	<link rel="stylesheet" href="./css/font-awesome.css" /> 
+
+	
+
+	<script src="../js/SJL.js"></script>
+
+
+	<link rel="stylesheet" href="../css/SJL.css" />
+
+	
+	
+	
+</head>
+
+<body class=''  style="">
+	<script>
+        window.onload=function(){
+            var form = new SJL.form({
+                form_name : 'registration',
+                has_footer:false,
+                has_header:true,
+                header_text:'register',
+                form_max_width:500,
+                form_method:'post',
+                form_action:'./',
+                form_align:'center',
+                margin:{top:'10%'},
+                items:[
+                    new SJL.textbox({
+                        type:'text',
+                        display:'block',
+                        place_holder:'USERNAME',
+                        text:'USERNAME',
+                        name:'username'
+                    }),
+                    new SJL.textbox({
+                        type:'password',
+                        display:'block',
+                        place_holder:'PASSWORD',
+                        text:'PASSWORD',
+                        name:'password'
+                    }),
+                    new SJL.button({
+                        text:'Submit',
+                        name:'submit',
+                        value:'submit',
+                        btn_style:'success',
+                        btn_align:'center',
+                        btn_type:'submit'
+                    })
+                ]
+            });
+            var box = new SJL.hbox({
+                columns_weight:'2 4 4 2',
+                items:[
+                    new SJL.blank({text:''}),
+                    form,
+                    new SJL.form({
+                        form_name : 'fuckme',
+                        footer_text:'fuck you',
+                        has_footer:true,
+                        has_header:true,
+                        header_text:'Sign up',
+                        form_max_width:500,
+                        form_method:'post',
+                        form_action:'./',
+                        form_align:'center',
+                        margin:{top:'10%'},
+                        items:[
+                            new SJL.paragraph({text:'This is only test'})
+                        ]
+                    }),
+                    function(){
+                        var a = SJL.create_element('div',{});
+                        a.set_text('this is new method').set_style('margin-top','20%').set_style('text-align','center');
+                        return a;
+                    }(),
+                ]
+            });
+            cont = new SJL.container({
+                items:[box]
+            });
+            SJL.dom('body').append(cont.dom);
+        } 
+    </script>
+</body>
+</html>
